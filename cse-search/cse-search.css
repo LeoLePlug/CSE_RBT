@@ -1,0 +1,43 @@
+/* Styles pour la gestion des mots-clés */
+.wrap {
+  margin: 20px;
+}
+
+.wp-heading-inline {
+  margin-top: 0;
+}
+
+.wp-list-table th.column-primary {
+  width: 25%;
+}
+
+.wp-list-table th {
+  text-align: left;
+}
+
+.wp-list-table td {
+  vertical-align: middle;
+}
+
+.button-primary {
+  background-color: #00A0DC;
+  color: #ffffff;
+  border: 1px solid #00A0DC;
+}
+
+.button-primary:hover {
+  background-color: #008DBA;
+  border-color: #008DBA;
+}
+
+/* Styles pour le formulaire de recherche */
+#custom-search-form {
+  display: flex;
+  gap: 1em;
+}
+
+#custom-search-form input[type="submit"] {
+  background-color: #00A0DC;
+  color: #ffffff;
+  border: 1px solid #00A0DC;
+}
