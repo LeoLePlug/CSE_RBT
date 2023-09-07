@@ -7,3 +7,7 @@
  * Author: Leoleplug Agency
  * Author URI: https://leoleplug.com/
  */
+
+// Inclure le fichier panel-admin.php
+include_once(plugin_dir_path(__FILE__) . 'panel-admin.php');
+?>
