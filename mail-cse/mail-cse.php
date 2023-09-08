@@ -1,42 +1,29 @@
 <?php
-/**
- * Plugin Name: Mail CSE
- * Plugin URI: https://leoleplug.com/
- * Description: Ce plugin permet d'envoyer des emails au CSE. #made by leoleplug agency, votre agence web de confiance.
- * Version: 1.3.2
- * Author: Leoleplug Agency
- * Author URI: https://leoleplug.com/
- */
 
-add_action( 'frm_after_create_entry', 'frm_move_file_and_rename', 10, 2 );
-function frm_move_file_and_rename( $entry_id, $form_id ) {
-    $field_ids = array(7, 12, 17, 27, 32, 37, 42, 47, 52, 57, 62, 67, 72, 77, 82, 87, 92, 97, 102, 107, 112, 117, 122); // ID des champs pour les fichiers
-    $mapping_ids = array( // Mapping des IDs pour le renommage
-        7 => array(1, 123), // Utilisez 'q' au lieu de 123 si on veut utiliser mot-clé utilisé
-        12 => array(8, 10),
-	  	17 => array(13, 15),
-	    27 => array(23, 25),
-   	    32 => array(28, 30),
-	    37 => array(33, 35),
-	    42 => array(38, 40),
-	    47 => array(43, 45),
-	    52 => array(48, 50),
-	    57 => array(53, 55),
-	    62 => array(58, 60),
-	    67 => array(63, 65),
-	    72 => array(68, 70),
-	    77 => array(73, 75),
-	    82 => array(78, 80),
-	    87 => array(83, 85),
-	    92 => array(88, 90),
-	    97 => array(93, 95),
-	    102 => array(98, 100),
-	    107 => array(103, 105),
-	    112 => array(108, 110),
-	    117 => array(113, 115),
-	    122 => array(118, 220)
-	  
-    );
+global $wpdb;
+$table_name = $wpdb->prefix . 'mappings';
+
+// Initialisation des variables
+$field_ids = array();
+$mapping_ids = array();
+
+$raw_mapping_data = $wpdb->get_results("SELECT ID_Telechargement, ID_SESA, ID_Nom_Activite FROM {$table_name}", ARRAY_A);
+if (empty($raw_mapping_data)) {
+    return;  // Si aucun résultat n'est renvoyé, sortez de l'exécution
+}
+
+foreach ($raw_mapping_data as $row) {
+    $field_ids[] = $row['ID_Telechargement'];
+    $mapping_ids[$row['ID_Telechargement']] = array($row['ID_SESA'], $row['ID_Nom_Activite']);
+}
+
+add_action('frm_after_create_entry', 'frm_move_file_and_rename', 10, 2);
+function frm_move_file_and_rename($entry_id, $form_id) {
+    global $field_ids, $mapping_ids;
+
+    if (empty($field_ids)) {
+        return;  // Assurez-vous que la variable $field_ids est bien définie et non vide
+    }
 
     foreach ($field_ids as $field_id) {
         if (isset($_POST['item_meta'][$field_id])) {
