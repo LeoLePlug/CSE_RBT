@@ -124,6 +124,7 @@ if (!class_exists('CSE_Formulaire')) {
             echo "ID Téléchargement: <input type='text' name='ID_Telechargement' required>";
             echo "ID SESA: <input type='text' name='ID_SESA' required>";
             echo "ID Nom Activité: <input type='text' name='ID_Nom_Activite' required>";
+	        echo "<input type='hidden' name='action' value='add'>";
             echo "<button class='button' type='submit'>Ajouter</button>";
             echo "</form>";
             

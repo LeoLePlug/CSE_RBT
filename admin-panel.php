@@ -62,15 +62,31 @@ function afficher_page_mot_cles_adultes() {
     echo '<div class="wrap">';
     echo '<h2>Mot-Clés Adultes</h2>';
     // Ajoutez ici les éléments de la page "Mot-Clés Adultes"
-    echo '</div>';
+    include_once(plugin_dir_path(__FILE__) . 'cse-search/Adultes/cse-admin-adultes.php');
+    $CSE_Adultes_Admin = new CSE_Search_Adultes_Admin();
+    $CSE_Adultes_Admin->display_keywords_adultes();
+
+   echo '</div>';
 }
 
 // Fonction pour afficher le contenu de la page "Mot-Clés Enfants"
 function afficher_page_mot_cles_enfants() {
     echo '<div class="wrap">';
     echo '<h2>Mot-Clés Enfants</h2>';
-    // Ajoutez ici les éléments de la page "Mot-Clés Enfants"
+    include_once(plugin_dir_path(__FILE__) . 'cse-search/Enfants/cse-admin-enfants.php');
+    $CSE_Section_Enfants_Admin = new CSE_Search_Enfants_Admin();
+    $CSE_Section_Enfants_Admin->display_keywords_enfants();
+
+    echo '<br><br><br><br><br><br><br><br><br><br><br><br>';
+  
+    echo '<h2>Activité Enfants</h2>';
+    include_once(plugin_dir_path(__FILE__) . 'cse-search/Enfants/cse-admin-enfants-section.php');
+    $CSE_Enfants_Admin = new CSE_Section_Enfant_Admin();
+    $CSE_Enfants_Admin->display_sections_enfant();
+    echo '<br><br><br>';
+  
     echo '</div>';
+
 }
 
 function afficher_page_formulaires() {

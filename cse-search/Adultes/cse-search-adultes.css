@@ -1,0 +1,91 @@
+/* Styles pour la gestion des mots-clés */
+.wrap {
+    margin: 20px;
+  }
+  
+  .wp-heading-inline {
+    margin-top: 0;
+  }
+  
+  .wp-list-table th.column-primary {
+    width: 25%;
+  }
+  
+  .wp-list-table th {
+    text-align: left;
+  }
+  
+  .wp-list-table td {
+    vertical-align: middle;
+  }
+  
+  .button-primary {
+    background-color: #00A0DC;
+    color: #ffffff;
+    border: 1px solid #00A0DC;
+  }
+  
+  .button-primary:hover {
+    background-color: #008DBA;
+    border-color: #008DBA;
+  }
+  
+  /* Styles pour le formulaire de recherche */
+  #custom-search-form {
+    display: flex;
+    gap: 1em;
+  }
+  
+  #custom-search-form input[type="submit"] {
+    background-color: #00A0DC;
+    color: #ffffff;
+    border: 1px solid #00A0DC;
+  }
+  #keyword-input-adultes {
+      width: 100%;
+  }
+  
+  #custom-search-form-adultes input[type="submit"] {
+      background-color: #00A0DC;
+      color: #ffffff;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: none;
+      margin-top: 1em;
+  }
+  
+  #custom-search-form-adultes input[type="submit"]:hover {
+      background-color: #00A0DC;
+      color: #ffffff;
+      border: none;
+  }
+  
+  
+  #keywords_adultes-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.95);
+      z-index: 9999;
+      overflow-y: auto;
+      padding: 20px;
+      max-height: 300px;  /* Limit the height and make it scrollable if too many keywords */
+      border: 1px solid #ddd;
+      display: none;  /* Initially hidden */
+  }
+  
+  
+  #keywords_adultes-dropdown ul {
+      list-style-type: none;
+      padding: 0;
+  }
+  
+  #keywords_adultes-dropdown li {
+      padding: 10px;
+      border-bottom: 1px solid #e5e5e5;
+      color: black;
+      cursor: pointer;
+  }
+  
